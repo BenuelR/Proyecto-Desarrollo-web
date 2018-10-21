@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/icon.ico">
+<title>Ingresar Datos </title>
+
+<style>
+	#datos{
+                background-color: rgba(0, 0, 0, 0.62);
+                color: #ffffff;
+                width: 400px;
+                height: 750px;
+                border-radius: 3px;
+                padding: 3rem 4rem 3rem 4rem;
+                margin-left: auto;
+                margin-right: auto;
+                transition: 1s background-color;
+          }
+
+</style>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div id="datos" class="conteiner">
+	<div class="form-group">
+		<form>
+		<h3 text-align="center">Ingrese datos</h3>
+		Nombre:<br>
+		<input name="nombre" class="form-control" type="text"><br>
+		Apellido:<br>
+		<input name="apellido" class="form-control" type="text"><br>
+		Edad:<br>
+		<input type="number" class="form-control" name="edad" min="1" max="100"><br>
+		Genero:<br>
+		<input type="radio" class="custom-radio" name="genero" value="masculino" checked> Male<br>
+		<input type="radio" class="custom-radio" name="genero" value="femenino"> Female<br><br>
+		Fecha de Nacimiento:<br>
+		<input type="fechanac" class="form-control" name="bday"><br>
+		E-mail:
+		<input type="email" class="form-control" name="email"><br>
+		Contraseña:<br>
+		<input type="password" class="form-control" name="password"><br>
+
+			
+		<input type="submit" value="Confirmar">
+		</form>
+	</div>
+</div>
+
+</body>
+</html> 
