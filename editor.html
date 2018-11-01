@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Editor code</title>
+		<style>
+			textarea, iframe{
+				border:2px solid #ddd;
+				height:500px;
+				width: 100%;
+				background-color:#0e2c4a40;
+				color:#02f17d;
+			}
+			strong{
+				color:white;
+			}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="img/icon.ico">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	</head>
+	<body style="background-color:black">
+	
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		  <a class="navbar-brand" href="#">SUPERCode</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+				<a class="nav-link" href="index3.html">Home <span class="sr-only">(current)</span></a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="formulario.html">Link</a>
+			  </li>
+			   <li class="nav-item">
+				<a class="nav-link" href="index.html">Login</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link disabled" href="#">Disabled</a>
+			  </li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				<div class="dropdown-menu" aria-labelledby="dropdown01">
+				  <a class="dropdown-item" href="#">Action</a>
+				  <a class="dropdown-item" href="#">Another action</a>
+				  <a class="dropdown-item" href="#">Something else here</a>
+				</div>
+			  </li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+			  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		  </div>
+		</nav>
+	
+	
+		<table width=100% border="0" cellspacing="5" cellpadding="5" style="margin-top: 70px;">
+			<tr>
+				<td width="33.3%" scope="col">&nbsp;</td>
+				<td width="33.3%" scope="col">&nbsp;</td>
+				<td width="33.3%" scope="col" align="left">
+					<input onclick="runCode();" type="button" value="Run code" class="btn btn-danger btn-block">
+				</td>
+			</tr>
+				<td>
+					<form>
+						<strong>Code HTML</strong>
+						<textarea name="sourceCode" id="sourceCode">
+<html>
+	<head>
+		 <style>body{color:#e85b2e;}</style>
+		<title>Hola</title>
+	</head>
+	<body>
+		<h1>Hola</h1>
+		<p>Escribe tu codigo HTML aqui y dale click en run code!</p>
+	</body>
+</html>
+						</textarea>
+					</form>
+				</td>
+				
+				<td>
+					<form>
+						<strong>Code CSS</strong>
+						<textarea name="sourceCodeCSS" id="sourceCodeCSS">
+
+						CSS
+						CSS
+						CSS
+						</textarea>
+					</form>
+				</td>
+				
+				<td>
+					<form>
+						<strong>Code JavaScript</strong>
+						<textarea name="sourceCodeJAVA" id="sourceCodeJAVA">
+
+						JavaScript
+						JavaScript
+						JavaScript
+						
+						
+						</textarea>
+					</form>
+				</td>
+				
+		</table>
+		
+		<div class="row" Style="margin-right: 1px; margin-left: 1px;">
+		<strong>OutPut</strong><iframe name="targetCode" id="targetCode"></iframe>
+		</div>
+		<script>
+		function runCode(){
+			var content = document.getElementById('sourceCode').value;
+			var iframe = document.getElementById('targetCode');
+			iframe = (iframe.contentWindow)?iframe.contentWindow:(iframe.contentDocument)? iframe.contentDocument.document:
+			iframe.contentDocument;
+			
+			iframe.document.open();
+			iframe.document.write(content);
+			iframe.document.close();
+			return false;
+		}
+			runCode();
+		</script>
+
+	</body>
+</html>
