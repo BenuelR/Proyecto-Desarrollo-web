@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/icon.ico">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+
+    <title>Create code Web</title>
+	<style>
+		#divcode{margin-top: 100px}
+		
+		h3{margin-left: 50px}
+	</style>    <!-- Bootstrap core CSS -->
+    
+
+  </head>
+
+  <body class="text-center">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">SUPERCode</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index3.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="formulario.html">Registrate Aqui!</a>
+          </li>
+		   <li class="nav-item">
+            <a class="nav-link" href="index.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="edit.html">Crear codigo WEB</a>
+          </li><li class="nav-item">
+            <a class="nav-link" href="editor.html">Crear snippet code</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="registrado.html">Registrado</a>
+          </li>
+          
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+	
+		<div id="divcode">
+		  <textarea id="html" placeholder="HTML" name="html" ></textarea>
+		  <textarea id="css" placeholder="CSS" name="css" onsubmit="download(this['name'].value, this['css'].value)"></textarea>
+		  <textarea id="js" placeholder="JavaScript"></textarea><br>
+		</div>
+
+      <iframe id="code"></iframe>
+			
+			
+      <script type="text/javascript" src="app.js"></script>
+	  
+	  
+	  <div class="row">
+			<h3 style="text-align:center">Copia el codigo que tienes arriba y pegalo aqui para descargarlo</h3>
+			<h3 style="text-align:center">tambien puedes cargar un archivo txt donde tengas tu codigo</h3>
+			  <table>
+			<tr><td style="margin-left: 50px">Copia el codigo escrito arriba y descargalo:</td></tr>
+			<tr>
+				<td colspan="3">
+					<textarea id="inputTextToSave" cols="80" rows="25"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td >Nombre del archivo:</td>
+				<td ><input id="inputFileNameToSaveAs"></input></td>
+				<td ><button onclick="saveTextAsFile()">Guardalo</button></td>
+			</tr>
+			<tr>
+				<td>Seleciona el archivo txt:</td>
+				<td><input type="file" id="fileToLoad"></td>
+				<td><button onclick="loadFileAsText()">Cargar archivo .txt</button><td>
+			</tr>
+		</table>
+		 </div>
+		<script type="text/javascript">
+		
+		 
+		function saveTextAsFile()
+		{
+			var textToSave = document.getElementById("inputTextToSave").value;
+			var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+			var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+			var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+		 
+			var downloadLink = document.createElement("a");
+			downloadLink.download = fileNameToSaveAs;
+			downloadLink.innerHTML = "Download File";
+			downloadLink.href = textToSaveAsURL;
+			downloadLink.onclick = destroyClickedElement;
+			downloadLink.style.display = "none";
+			document.body.appendChild(downloadLink);
+		 
+			downloadLink.click();
+		}
+		 
+		function destroyClickedElement(event)
+		{
+			document.body.removeChild(event.target);
+		}
+		 
+		function loadFileAsText()
+		{
+			var fileToLoad = document.getElementById("fileToLoad").files[0];
+		 
+			var fileReader = new FileReader();
+			fileReader.onload = function(fileLoadedEvent) 
+			{
+				var textFromFileLoaded = fileLoadedEvent.target.result;
+				document.getElementById("inputTextToSave").value = textFromFileLoaded;
+			};
+			fileReader.readAsText(fileToLoad, "UTF-8");
+		}
+		 
+		</script>
+	  
+	
+
+    </body>
+  </html>
+

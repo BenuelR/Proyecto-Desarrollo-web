@@ -1,0 +1,13 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top: 3.5rem;
+}
+
+
+#ofertas{
+	color:white;
+	border-radius:10px;
+	width:360;
+	max-width:30%;
+	padding:10;
+}
